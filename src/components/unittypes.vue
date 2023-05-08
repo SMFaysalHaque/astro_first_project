@@ -2,7 +2,7 @@
     <div>
         <div class="flex items-center justify-between">
             <p class="font-bold text-lg">Unit Types</p>
-            <button class="border border-green-700 bg-green-700 hover:bg-green-500 hover:border-green-500 text-white px-10 py-2">Add New Unit</button>
+            <button class="border border-green-700 bg-green-700 hover:bg-green-500 hover:border-green-500 rounded-sm text-white px-10 py-2">Add New Unit</button>
         </div>
         <div class="grid grid-cols-6 bg-slate-100">
             <div class="col-span-2 flex justify-center items-center border border-cyan-700 p-2">
