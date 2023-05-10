@@ -9,6 +9,7 @@
       <ul class="flex">
         <li class="px-5 py-2 hover:bg-sky-500 hover:text-white rounded-sm text-lg ease-in duration-300"><a href="/">All Units</a></li>
         <li class="px-5 py-2 hover:bg-sky-500 hover:text-white rounded-sm text-lg ease-in duration-300"><a href="/person/">Persons</a></li>
+        <li class="px-5 py-2 hover:bg-sky-500 hover:text-white rounded-sm text-lg ease-in duration-300"><a href="/employee">Employees</a></li>
         <li class="px-5 py-2 hover:bg-sky-500 hover:text-white rounded-sm text-lg ease-in duration-300"><a href="/unittypes/">Unit Types</a></li>
       </ul>
     </div>
@@ -20,12 +21,24 @@
 </template>
 
 <script>
+import { useStore } from '@nanostores/vue';
+import { counter } from '../Store/store.js';
 
 export default {
+  data() {
+    return {
+      counterValue: useStore(counter),
+    }
+  },
     methods: {
       name() {
         console.log("aaa")
       }
+
+    },
+    mounted () {
+      console.log(this.counterValue);
+
     },
 }
 </script>

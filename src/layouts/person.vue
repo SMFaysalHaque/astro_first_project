@@ -82,7 +82,7 @@
             <p>E-mail:</p>
         </div>
         <div class="col-span-6 border-e-2">
-            <table class="mx-5 my-5">
+            <table class="table-fixed mx-5 my-5">
                 <thead>
                     <tr>
                         <th class="border border-slate-300 bg-slate-100 w-32 py-2 text-center">Status</th>
@@ -126,5 +126,4 @@
         </div>
     </div>
     </div>
-
 </template>
