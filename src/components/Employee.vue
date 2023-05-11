@@ -32,7 +32,7 @@
 
 <script>
 import Addnewemployee from '../components/Addnewemployee.vue'
-import { employee } from '../Store/store.js'
+import { employee, employeeData } from '../Store/store.js'
     export default {
         components: {
             Addnewemployee
@@ -53,6 +53,10 @@ import { employee } from '../Store/store.js'
             },
             getEmployeeData(value){
                 this.allEmployee.push(value);
+                // console.log(this.allEmployee)
+                employeeData.set(this.allEmployee);
+                console.log(employeeData.get())
+                c
             }
         },
     }

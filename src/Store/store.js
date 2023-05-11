@@ -38,6 +38,11 @@ const employee = atom([
         email: 'sohana@gmail.com'
     },
 ])
+
+const employeeData = atom([
+
+]);
+
 export {
-    counter, prodcutDetails, employee
+    counter, prodcutDetails, employee, employeeData
 }

@@ -13,33 +13,22 @@
                                     <th class="border border-slate-300 bg-slate-100 w-2/12 py-2 text-center">Type</th>
                                     <th class="border border-slate-300 bg-slate-100 w-2/12 py-2 text-center">Name</th>
                                     <th class="border border-slate-300 bg-slate-100 w-3/12 py-2 text-center">Assign To</th>
-                                    <th class="border border-slate-300 bg-slate-100 w-2/12 py-2 text-center">From</th>
                                 </tr>
                         </thead>
                         <tbody>
                                 <tr>
-                                    <td class="border border-slate-300 text-center py-3">Indiana</td>
-                                    <td class="border border-slate-300 text-center py-3">Indianapolis</td>
-                                    <td class="border border-slate-300 text-center py-3">Ohio</td>
-                                    <td class="border border-slate-300 text-center py-3">Columbus</td>
-                                    <td class="border border-slate-300 text-center py-3">Michigan</td>
-                                    <td class="border border-slate-300 text-center py-3">Detroit</td>
+                                    <td class="border border-slate-300 text-center py-3">Taken</td>
+                                    <td class="border border-slate-300 text-center py-3">01</td>
+                                    <td class="border border-slate-300 text-center py-3">Computer</td>
+                                    <td class="border border-slate-300 text-center py-3">hp-123</td>
+                                    <td class="border border-slate-300 text-center py-3">Akbar Ali</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-slate-300 text-center py-3">Ohio</td>
-                                    <td class="border border-slate-300 text-center py-3">Columbus</td>
-                                    <td class="border border-slate-300 text-center py-3">Indiana</td>
-                                    <td class="border border-slate-300 text-center py-3">Indianapolis</td>
-                                    <td class="border border-slate-300 text-center py-3">Michigan</td>
-                                    <td class="border border-slate-300 text-center py-3">Detroit</td>
-                                </tr>
-                                <tr>
-                                    <td class="border border-slate-300 text-center py-3">Michigan</td>
-                                    <td class="border border-slate-300 text-center py-3">Detroit</td>
-                                    <td class="border border-slate-300 text-center py-3">Ohio</td>
-                                    <td class="border border-slate-300 text-center py-3">Columbus</td>
-                                    <td class="border border-slate-300 text-center py-3">Indiana</td>
-                                    <td class="border border-slate-300 text-center py-3">Indianapolis</td>
+                                    <td class="border border-slate-300 text-center py-3">Taken</td>
+                                    <td class="border border-slate-300 text-center py-3">02</td>
+                                    <td class="border border-slate-300 text-center py-3">Headphone</td>
+                                    <td class="border border-slate-300 text-center py-3">havit-2345</td>
+                                    <td class="border border-slate-300 text-center py-3">Rakib Ali</td>
                                 </tr>
                         </tbody>
                     </table>
@@ -58,19 +47,14 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="border border-slate-300 text-center py-3">Indiana</td>
-                                    <td class="border border-slate-300 text-center py-3">Indianapolis</td>
-                                    <td class="border border-slate-300 text-center py-3">Ohio</td>
+                                    <td class="border border-slate-300 text-center py-3">Computer</td>
+                                    <td class="border border-slate-300 text-center py-3">10</td>
+                                    <td class="border border-slate-300 text-center py-3">01</td>
                                 </tr>
                                 <tr>
-                                    <td class="border border-slate-300 text-center py-3">Ohio</td>
-                                    <td class="border border-slate-300 text-center py-3">Columbus</td>
-                                    <td class="border border-slate-300 text-center py-3">Indianapolis</td>
-                                </tr>
-                                <tr>
-                                    <td class="border border-slate-300 text-center py-3">Michigan</td>
-                                    <td class="border border-slate-300 text-center py-3">Detroit</td>
-                                    <td class="border border-slate-300 text-center py-3">Indiana</td>
+                                    <td class="border border-slate-300 text-center py-3">Headphone</td>
+                                    <td class="border border-slate-300 text-center py-3">02</td>
+                                    <td class="border border-slate-300 text-center py-3">10</td>
                                 </tr>
                             </tbody>
                     </table>
@@ -81,8 +65,11 @@
 </template>
 
 <script>
+import {employeeData} from '../Store/store.js'
 export default {
-    
+    mounted () {
+        console.log(employeeData.get());
+    },
 }
 </script>
 
