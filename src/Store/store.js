@@ -39,10 +39,6 @@ const employee = atom([
     },
 ])
 
-const employeeData = atom([
-
-]);
-
 export {
-    counter, prodcutDetails, employee, employeeData
+    counter, prodcutDetails, employee
 }

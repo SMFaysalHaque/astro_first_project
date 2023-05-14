@@ -9,7 +9,7 @@
                 <p>Name: <input v-model="employeeInfo.name" class="border rounded-lg contrast-more:border-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 ms-1" type="text" name="" id=""></p>
                 <p>Mobile: <input v-model="employeeInfo.mobile" class="border rounded-lg contrast-more:border-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 ms-1" type="text" name="" id=""></p>
                 <p>E-mail: <input v-model="employeeInfo.email" class="border rounded-lg contrast-more:border-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 ms-1" type="text" name="" id=""></p>
-                <button @click="a()" class="border border-sky-600 bg-sky-600 text-white hover:bg-sky-500 rounded-sm px-8 py-1">Add New Employee</button>
+                <button @click="addEmployee()" class="border border-sky-600 bg-sky-600 text-white hover:bg-sky-500 rounded-sm px-8 py-1">Add New Employee</button>
             </div>
         </div>
     </div>
@@ -17,26 +17,30 @@
 
 <script>
 // import { useStore } from '@nanostores/vue';
-import {employee} from '../Store/store.js'
+import {employee, allEmployeeData} from '../Store/store.js'
     export default {
         emits: ['close', 'addNewEmployee'],
         data() {
             return {
                 employeeData: employee.get(),
+                singleEmployeeInfo: allEmployeeData.get(),
                 employeeInfo: {
                     name: '',
                     mobile: '',
                     email: '',
-                }
+                },
             }
+        },
+        mounted () {
+            ;
         },
         methods: {
-            a() {
+            addEmployee() {
                 this.$emit('addNewEmployee', this.employeeInfo);
                 this.$emit('close');
-            }
+                console.log('aaa')
+            },
         },
-        
     }
 </script>
 

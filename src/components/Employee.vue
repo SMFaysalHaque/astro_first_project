@@ -32,7 +32,7 @@
 
 <script>
 import Addnewemployee from '../components/Addnewemployee.vue'
-import { employee, employeeData } from '../Store/store.js'
+import { employee } from '../Store/store.js'
     export default {
         components: {
             Addnewemployee
@@ -40,13 +40,13 @@ import { employee, employeeData } from '../Store/store.js'
         data() {
             return {
                 allEmployee: employee.get(),
-                isModalVisible: false,
-
+                isModalVisible: false
             }
         },
         methods: {
             isShowed() {
                 this.isModalVisible = true;
+                console.log('aaa')
             },
             isClosed() {
                 this.isModalVisible = false;
@@ -54,11 +54,10 @@ import { employee, employeeData } from '../Store/store.js'
             getEmployeeData(value){
                 this.allEmployee.push(value);
                 // console.log(this.allEmployee)
-                employeeData.set(this.allEmployee);
-                console.log(employeeData.get())
-                c
-            }
-        },
+                allEmployeeData.set(this.allEmployee)
+                console.log(allEmployeeData.get())
+            },
+        }
     }
 </script>
 
