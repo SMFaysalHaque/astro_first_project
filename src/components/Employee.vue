@@ -39,9 +39,12 @@ import { employee } from '../Store/store.js'
         },
         data() {
             return {
-                allEmployee: employee.get(),
+                allEmployee: [],
                 isModalVisible: false
             }
+        },
+        mounted(){
+            this.allEmployee = JSON.parse(localStorage.getItem('allEmployee')) ? JSON.parse(localStorage.getItem('allEmployee')) : []
         },
         methods: {
             isShowed() {
@@ -53,9 +56,9 @@ import { employee } from '../Store/store.js'
             },
             getEmployeeData(value){
                 this.allEmployee.push(value);
-                // console.log(this.allEmployee)
-                allEmployeeData.set(this.allEmployee)
-                console.log(allEmployeeData.get())
+                localStorage.setItem('allEmployee', JSON.stringify(this.allEmployee))
+                // allEmployeeData.set(this.allEmployee)
+                // console.log(allEmployeeData.get())
             },
         }
     }

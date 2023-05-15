@@ -68,7 +68,7 @@
 import {employeeData} from '../Store/store.js'
 export default {
     mounted () {
-        console.log(employeeData.get());
+        // console.log(employeeData.get());
     },
 }
 </script>
