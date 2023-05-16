@@ -11,10 +11,10 @@
         <div class="flex items-center justify-center col-span-3 border-e-2">
             <p>Employee Info.</p>
         </div>
-        <div class="flex items-center justify-center col-span-6 border-e-2">
+        <div class="flex items-center justify-center col-span-5 border-e-2">
             <p>All Units</p>
         </div>
-        <div class="flex items-center justify-center col-span-2">
+        <div class="flex items-center justify-center col-span-3">
             <p>Assign Units</p>
         </div>
     </div>
@@ -28,15 +28,14 @@
             <p>Mobile: {{ personInfo.mobile }}</p>
             <p>E-mail: {{ personInfo.email }}</p>
         </div>
-        <div class="col-span-6 border-e-2">
-            <table class="mx-5 my-5">
+        <div class="col-span-5 border-e-2">
+            <table class="table-fixed mx-5 my-5 w-auto">
                 <thead>
                     <tr>
-                        <th class="border border-slate-300 bg-slate-100 w-32 py-2 text-center">Status</th>
-                        <th class="border border-slate-300 bg-slate-100 w-32 py-2 text-center">Serial</th>
-                        <th class="border border-slate-300 bg-slate-100 w-32 py-2 text-center">Type</th>
-                        <th class="border border-slate-300 bg-slate-100 w-32 py-2 text-center">Name</th>
-                        <th class="border border-slate-300 bg-slate-100 w-32 py-2 text-center">Assign To</th>
+                        <th class="border border-slate-300 bg-slate-100 w-40 py-2 text-center">Status</th>
+                        <th class="border border-slate-300 bg-slate-100 w-40 py-2 text-center">Serial</th>
+                        <th class="border border-slate-300 bg-slate-100 w-40 py-2 text-center">Type</th>
+                        <th class="border border-slate-300 bg-slate-100 w-40 py-2 text-center">Name</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,13 +44,12 @@
                         <td class="border border-slate-300 text-center py-3">01</td>
                         <td class="border border-slate-300 text-center py-3">Computer</td>
                         <td class="border border-slate-300 text-center py-3">hp-123</td>
-                        <td class="border border-slate-300 text-center py-3">Faysal</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div class="flex items-center justify-center col-span-2">
-            <button class="border rounded-lg contrast-more:border-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 hover:bg-sky-600 hover:text-white px-10 py-3 me-2 ease-in duration-300">Assign Product Units</button>
+        <div class="flex items-center justify-center col-span-3 mx-5">
+            <button class="border rounded-lg contrast-more:border-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 hover:bg-sky-600 hover:text-white px-10 py-3 me-2 ease-in duration-300">Assign Units</button>
         </div>
     </div>
     

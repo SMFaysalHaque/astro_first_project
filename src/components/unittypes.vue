@@ -19,23 +19,24 @@
                 <p>Details</p>
             </div>
         </div>
-        <div v-for="(item, i) in allProductDetails" :key="item.id" class="grid grid-cols-6 border border-cyan-700">
+        <div v-for="(allProductDetail, i) in allProductDetails" :key="allProductDetail" class="grid grid-cols-6 border border-cyan-700">
             <div class="col-span-2 flex justify-center items-center border-e-2">
-                <p>{{ item.type }}</p>
+                <p>{{ allProductDetail.type }}</p>
             </div>
             <div class="col-span-4 flex flex-col justify-center ps-10 py-10 space-y-3">
-                <p>Name: {{ item.name }}</p>
-                <p>Model Name: {{ item.model }}</p>
-                <p>Serial No.: {{ i+1 }}</p>
+                <p>Name: {{ allProductDetail.name }} </p>
+                <p>Model Name: {{ allProductDetail.model }}</p>
+                <p>Serial No.: {{ i + 1 }}</p>
             </div>
         </div>
     </div>
 </template>
 
+
 <script>
 import Addnewunit from '../components/addnewunit.vue';
 // import { useStore } from '@nanostores/vue';
-import { prodcutDetails } from '../Store/store.js';
+// import { prodcutDetails } from '../Store/store.js';
     export default {
         components: {
             Addnewunit,
@@ -43,8 +44,13 @@ import { prodcutDetails } from '../Store/store.js';
         data() {
             return {
                 isModalVisible: false,
-                allProductDetails: prodcutDetails.get(), //when we use useStore(productDetails) on that time storage array is only read able or muted. But when we use "productDetails.get()" on that time storage's array is read able or muted.
+                // allProductDetails: prodcutDetails.get(), //when we use useStore(productDetails) on that time storage array is only read able or muted. But when we use "productDetails.get()" on that time storage's array is read able or muted.
+                allProductDetails: [],
             }
+        },
+        mounted () {
+            let arr = localStorage.getItem('allProductDetails')
+            this.allProductDetails = JSON.parse(arr) ? JSON.parse(arr) : [];
         },
         methods: {
             showModal() {
@@ -55,7 +61,7 @@ import { prodcutDetails } from '../Store/store.js';
             },
             getProductData(value){
                 this.allProductDetails.push(value);
-                prodcutDetails.set(this.allProductDetails);
+                localStorage.setItem('allProductDetails', JSON.stringify(this.allProductDetails))
                 console.log(value);
             }
         },

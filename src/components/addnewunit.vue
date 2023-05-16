@@ -16,13 +16,10 @@
 </template>
 
 <script>
-import { useStore } from '@nanostores/vue';
-import { prodcutDetails } from '../Store/store.js';
     export default {
         emits: ['close', 'addNewProduct'],
         data() {
             return {
-                newProduct: useStore(prodcutDetails),
                 info: {
                     type: '',
                     name: '',

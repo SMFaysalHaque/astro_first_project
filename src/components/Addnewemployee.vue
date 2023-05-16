@@ -16,14 +16,11 @@
 </template>
 
 <script>
-// import { useStore } from '@nanostores/vue';
 import { employee } from '../Store/store.js'
     export default {
         emits: ['close', 'addNewEmployee'],
         data() {
             return {
-                employeeData: employee.get(),
-                // singleEmployeeInfo: allEmployeeData.get(),
                 employeeInfo: {
                     name: '',
                     mobile: '',
