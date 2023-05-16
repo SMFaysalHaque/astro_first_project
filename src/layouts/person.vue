@@ -40,38 +40,71 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="border border-slate-300 text-center py-3">Taken</td>
+                        {{  personInfo.device }}
+                        <!-- <td class="border border-slate-300 text-center py-3">Taken</td>
                         <td class="border border-slate-300 text-center py-3">01</td>
                         <td class="border border-slate-300 text-center py-3">Computer</td>
-                        <td class="border border-slate-300 text-center py-3">hp-123</td>
+                        <td class="border border-slate-300 text-center py-3">hp-123</td> -->
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div class="flex items-center justify-center col-span-3 mx-5">
-            <button class="border rounded-lg contrast-more:border-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 hover:bg-sky-600 hover:text-white px-10 py-3 me-2 ease-in duration-300">Assign Units</button>
+        <div class="flex flex-col items-center justify-center col-span-3 mx-5 my-5">
+            <button class="border rounded-lg contrast-more:border-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 hover:bg-sky-600 hover:text-white px-10 py-3 me-2 ease-in duration-300" @click="isShowed(i)">Assign Units</button>
+            <div v-if="personInfo.show">
+                <AssignItem @close="isClosed(i)"/>
+            </div>
         </div>
     </div>
+//@click="addData(personInfo)"
     
     </div>
 </template>
 
 <script>
+import AssignItem from '../components/AssignItem.vue'
     export default {
+        components: {
+            AssignItem,
+        },
         data() {
             return {
+                isModalVisible: false,
                 personInfos: [
                 //     {
                 //     name: '',
-                //     mobile: '', ekhan theke nice method er moddhe "this.personInfos" pacche. 
-                //     email: ''
+                //     mobile: '', //ekhan theke nice method er moddhe "this.personInfos" pacche
+                //     email: '',
+                //     show: false
                 // }
-                ]
+                ],
+                selectedIndex: -1,
             }
         },
         mounted(){
             this.personInfos = JSON.parse(localStorage.getItem('allEmployee'));
-            // console.log(JSON.parse(localStorage.getItem('allEmployee')))
+            this.personInfos.forEach(element => {
+                element.show = false
+            });
+            console.log(this.personInfos)
+        },
+        methods: {
+            // addData(value) {
+            //     value= JSON.parse(JSON.stringify(value))
+            //     value.device.name="mouse"
+            //     value.device.quantity=1
+            //     console.log(value.device)
+               
+            // }
+            isShowed(index){
+                // this.selectedIndex = index
+                this.personInfos[index].show = true
+            },
+            isClosed(index){
+                this.personInfos[index].show = false
+                // this.isModalVisible = true
+                // this.selectedIndex = index
+            }
         }
     }
 </script>

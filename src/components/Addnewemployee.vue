@@ -25,6 +25,10 @@ import { employee } from '../Store/store.js'
                     name: '',
                     mobile: '',
                     email: '',
+                    device: {
+                        name: '',
+                        quantity: 0,
+                    }
                 },
             }
         },
