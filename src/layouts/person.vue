@@ -69,7 +69,7 @@ import AssignItem from '../components/AssignItem.vue'
         },
         data() {
             return {
-                isModalVisible: false,
+                // isModalVisible: false,
                 personInfos: [
                 //     {
                 //     name: '',
@@ -78,7 +78,7 @@ import AssignItem from '../components/AssignItem.vue'
                 //     show: false
                 // }
                 ],
-                selectedIndex: -1,
+                // selectedIndex: -1,
             }
         },
         mounted(){
