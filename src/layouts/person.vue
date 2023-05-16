@@ -24,9 +24,9 @@
             <p>{{ i+1 }}</p>
         </div>
         <div class="flex flex-col justify-center ps-10 space-y-3 col-span-3 border-e-2">
-            <p>Name:</p>
-            <p>Mobile:</p>
-            <p>E-mail:</p>
+            <p>Name: {{ personInfo.name }}</p>
+            <p>Mobile: {{ personInfo.mobile }}</p>
+            <p>E-mail: {{ personInfo.email }}</p>
         </div>
         <div class="col-span-6 border-e-2">
             <table class="mx-5 my-5">
@@ -37,33 +37,15 @@
                         <th class="border border-slate-300 bg-slate-100 w-32 py-2 text-center">Type</th>
                         <th class="border border-slate-300 bg-slate-100 w-32 py-2 text-center">Name</th>
                         <th class="border border-slate-300 bg-slate-100 w-32 py-2 text-center">Assign To</th>
-                        <th class="border border-slate-300 bg-slate-100 w-32 py-2 text-center">From</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="border border-slate-300 text-center py-3">Indiana</td>
-                        <td class="border border-slate-300 text-center py-3">Indianapolis</td>
-                        <td class="border border-slate-300 text-center py-3">Ohio</td>
-                        <td class="border border-slate-300 text-center py-3">Columbus</td>
-                        <td class="border border-slate-300 text-center py-3">Michigan</td>
-                        <td class="border border-slate-300 text-center py-3">Detroit</td>
-                    </tr>
-                    <tr>
-                        <td class="border border-slate-300 text-center py-3">Indiana</td>
-                        <td class="border border-slate-300 text-center py-3">Indianapolis</td>
-                        <td class="border border-slate-300 text-center py-3">Ohio</td>
-                        <td class="border border-slate-300 text-center py-3">Columbus</td>
-                        <td class="border border-slate-300 text-center py-3">Michigan</td>
-                        <td class="border border-slate-300 text-center py-3">Detroit</td>
-                    </tr>
-                    <tr>
-                        <td class="border border-slate-300 text-center py-3">Indiana</td>
-                        <td class="border border-slate-300 text-center py-3">Indianapolis</td>
-                        <td class="border border-slate-300 text-center py-3">Ohio</td>
-                        <td class="border border-slate-300 text-center py-3">Columbus</td>
-                        <td class="border border-slate-300 text-center py-3">Michigan</td>
-                        <td class="border border-slate-300 text-center py-3">Detroit</td>
+                        <td class="border border-slate-300 text-center py-3">Taken</td>
+                        <td class="border border-slate-300 text-center py-3">01</td>
+                        <td class="border border-slate-300 text-center py-3">Computer</td>
+                        <td class="border border-slate-300 text-center py-3">hp-123</td>
+                        <td class="border border-slate-300 text-center py-3">Faysal</td>
                     </tr>
                 </tbody>
             </table>
@@ -81,16 +63,17 @@
         data() {
             return {
                 personInfos: [
-                    {
-                    name: '',
-                    mobile: '',
-                    email: ''
-                }
+                //     {
+                //     name: '',
+                //     mobile: '', ekhan theke nice method er moddhe "this.personInfos" pacche. 
+                //     email: ''
+                // }
                 ]
             }
         },
         mounted(){
-            // (JSON.parse(localStorage.getItem('allEmployee')));
+            this.personInfos = JSON.parse(localStorage.getItem('allEmployee'));
+            // console.log(JSON.parse(localStorage.getItem('allEmployee')))
         }
     }
 </script>
