@@ -25,10 +25,7 @@
                     name: '',
                     mobile: '',
                     email: '',
-                    device: {
-                        type: 'Time',
-                        quantity: 0,
-                    }
+                    device: {},
                 },
             }
         },

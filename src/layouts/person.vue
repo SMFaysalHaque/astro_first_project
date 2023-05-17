@@ -37,10 +37,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr v-for="(value, key) in personInfos.device" :key="value">
                         <!-- {{ personInfo.device }} -->
-                        <td class="border border-slate-300 text-center py-3">{{ personInfo.device.type }}</td>
-                        <td class="border border-slate-300 text-center py-3">{{ personInfo.device.quantity }}</td>
+                        <td class="border border-slate-300 text-center py-3">{{ key }}</td>
+                        <td class="border border-slate-300 text-center py-3">{{ value }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -48,7 +48,7 @@
         <div class="flex flex-col items-center justify-center col-span-3 mx-5 my-5">
             <button class="border rounded-lg contrast-more:border-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 hover:bg-sky-600 hover:text-white px-10 py-3 me-2 ease-in duration-300" @click="isShowed(i)">Assign Units</button>
             <div v-if="personInfo.show">
-                <AssignItem @assignProduct="assignProduct()" @close="isClosed(i)"/>
+                <AssignItem @assignProduct="assignProduct($event, i)" @close="isClosed(i)"/>
             </div>
         </div>
     </div>
@@ -66,14 +66,7 @@ import AssignItem from '../components/AssignItem.vue'
         data() {
             return {
                 // isModalVisible: false,
-                personInfos: [
-                //     {
-                //     name: '',
-                //     mobile: '', //ekhan theke nice method er moddhe "this.personInfos" pacche
-                //     email: '',
-                //     show: false
-                // }
-                ],
+                personInfos: [],
                 // selectedIndex: -1,
             }
         },
@@ -81,7 +74,6 @@ import AssignItem from '../components/AssignItem.vue'
             this.personInfos = JSON.parse(localStorage.getItem('allEmployee'));
             this.personInfos.forEach(element => {
                 element.show = false
-                // console.log(this.personInfos["device"]["type"])
             });
             console.log(this.personInfos)
             // for (let index = 0; index < this.personInfos.length; index++) {
@@ -96,7 +88,6 @@ import AssignItem from '../components/AssignItem.vue'
             //     value.device.name="mouse"
             //     value.device.quantity=1
             //     console.log(value.device)
-               
             // }
             isShowed(index){
                 // this.selectedIndex = index
@@ -108,8 +99,14 @@ import AssignItem from '../components/AssignItem.vue'
                 // this.isModalVisible = true
                 // this.selectedIndex = index
             },
-            assignProduct(){
-            
+            assignProduct(type, index){
+                console.log("typpe", type , "index", index);
+                const currentPerson = this.personInfos[index]
+                if(!currentPerson.device[type]){
+                    currentPerson.device[type] = 1;
+                }
+                console.log("currentPerson", currentPerson);
+                localStorage.setItem('allEmployee', JSON.stringify(this.personInfos))
             }
         }
     }
