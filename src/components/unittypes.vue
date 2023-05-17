@@ -19,14 +19,13 @@
                 <p>Details</p>
             </div>
         </div>
-        <div v-for="(allProductDetail, i) in allProductDetails" :key="allProductDetail" class="grid grid-cols-6 border border-cyan-700">
+        <div v-for="(allProductDetail, i) in allProductDetails" :key="allProductDetail.i" class="grid grid-cols-6 border border-cyan-700">
             <div class="col-span-2 flex justify-center items-center border-e-2">
                 <p>{{ allProductDetail.type }}</p>
             </div>
             <div class="col-span-4 flex flex-col justify-center ps-10 py-10 space-y-3">
-                <p>Name: {{ allProductDetail.name }} </p>
                 <p>Model Name: {{ allProductDetail.model }}</p>
-                <p>Serial No.: {{ i + 1 }}</p>
+                <p>Quantity: {{ allProductDetail.quantity }}</p>
             </div>
         </div>
     </div>

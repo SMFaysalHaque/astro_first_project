@@ -45,7 +45,7 @@ import { employee } from '../Store/store.js'
         },
         mounted(){
             this.allEmployee = JSON.parse(localStorage.getItem('allEmployee')) ? JSON.parse(localStorage.getItem('allEmployee')) : []
-            console.log(this.allEmployee[3].devices)
+            // console.log(this.allEmployee[3].devices)
         },
         methods: {
             isShowed() {

@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { employee } from '../Store/store.js'
+// import { employee } from '../Store/store.js'
     export default {
         emits: ['close', 'addNewEmployee'],
         data() {
@@ -26,7 +26,7 @@ import { employee } from '../Store/store.js'
                     mobile: '',
                     email: '',
                     device: {
-                        name: '',
+                        type: 'Time',
                         quantity: 0,
                     }
                 },
