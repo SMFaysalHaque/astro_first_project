@@ -37,7 +37,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(value, key) in personInfos.device" :key="value">
+                    <tr v-for="(value, key) in personInfo.device" :key="value">
                         <!-- {{ personInfo.device }} -->
                         <td class="border border-slate-300 text-center py-3">{{ key }}</td>
                         <td class="border border-slate-300 text-center py-3">{{ value }}</td>
@@ -52,7 +52,6 @@
             </div>
         </div>
     </div>
-//@click="addData(personInfo)"
     
     </div>
 </template>

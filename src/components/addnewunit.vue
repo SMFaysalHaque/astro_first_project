@@ -24,6 +24,8 @@
                     type: '',
                     model: '',
                     quantity: '',
+                    status: 'available',
+                    status: 'taken'
                 }
             }
         },

@@ -20,7 +20,7 @@
             this.products = JSON.parse(localStorage.getItem('allProductDetails'))
         },
         methods: {
-            assignItem() {
+            assignItem(type) {
                 this.$emit('assignProduct', type)
                 console.log('aaa', type)
             },
