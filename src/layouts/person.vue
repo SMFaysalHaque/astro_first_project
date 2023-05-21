@@ -37,10 +37,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(value, key) in personInfo.device" :key="value">
+                    <tr v-for="(device, i) in personInfo.device" :key="device.i">
                         <!-- {{ personInfo.device }} -->
-                        <td class="border border-slate-300 text-center py-3">{{ key }}</td>
-                        <td class="border border-slate-300 text-center py-3">{{ value }}</td>
+                        <td class="border border-slate-300 text-center py-3">{{  }}</td>
+                        <td class="border border-slate-300 text-center py-3">{{  }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -48,7 +48,7 @@
         <div class="flex flex-col items-center justify-center col-span-3 mx-5 my-5">
             <button class="border rounded-lg contrast-more:border-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 hover:bg-sky-600 hover:text-white px-10 py-3 me-2 ease-in duration-300" @click="isShowed(i)">Assign Units</button>
             <div v-if="personInfo.show">
-                <AssignItem @assignProduct="assignProduct($event, i)" @close="isClosed(i)"/>
+                <AssignItem @assignProduct="assignProduct(type, index)" @close="isClosed(i)"/>
             </div>
         </div>
     </div>
@@ -60,7 +60,7 @@
 import AssignItem from '../components/AssignItem.vue'
     export default {
         components: {
-            AssignItem,
+            AssignItem
         },
         data() {
             return {
@@ -70,11 +70,12 @@ import AssignItem from '../components/AssignItem.vue'
             }
         },
         mounted(){
+            // this.personInfos = JSON.parse(localStorage.getItem('personInfos'));
             this.personInfos = JSON.parse(localStorage.getItem('allEmployee'));
             this.personInfos.forEach(element => {
                 element.show = false
             });
-            console.log(this.personInfos)
+            // console.log(this.personInfos)
             // for (let index = 0; index < this.personInfos.length; index++) {
             //     const element = this.personInfos[index].device.type;
             //     console.log(element)
@@ -99,13 +100,15 @@ import AssignItem from '../components/AssignItem.vue'
                 // this.selectedIndex = index
             },
             assignProduct(type, index){
-                console.log("typpe", type , "index", index);
+                // console.log("typpe", type , "index", index);
                 const currentPerson = this.personInfos[index]
-                if(!currentPerson.device[type]){
-                    currentPerson.device[type] = 1;
-                }
-                console.log("currentPerson", currentPerson);
+                console.log(currentPerson.type)
+                // if(!currentPerson[type]){
+                //     currentPerson[type] = 1;
+                // }
+                // console.log("currentPerson", currentPerson);
                 localStorage.setItem('allEmployee', JSON.stringify(this.personInfos))
+                localStorage.setItem('personInfos', JSON.stringify(this.personInfos))
             }
         }
     }

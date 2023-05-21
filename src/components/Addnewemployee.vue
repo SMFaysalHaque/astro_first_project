@@ -25,12 +25,16 @@
                     name: '',
                     mobile: '',
                     email: '',
-                    device: {},
+                    // device: {},
+                    device: {
+                        type: '',
+                        quantity: ''
+                    }
                 },
             }
         },
         mounted () {
-            ;
+            console.log(this.employeeInfo);
         },
         methods: {
             addEmployee() {

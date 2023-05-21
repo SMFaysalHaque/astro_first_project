@@ -41,20 +41,17 @@
                             <thead>
                                 <tr>
                                     <th class="border border-slate-300 w-80 py-2 bg-slate-100">Product Type</th>
+                                    <th class="border border-slate-300 w-80 py-2 bg-slate-100">Total Quantity</th>
                                     <th class="border border-slate-300 w-64 py-2 bg-slate-100">Available</th>
                                     <th class="border border-slate-300 w-64 py-2 bg-slate-100">Taken</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="border border-slate-300 text-center py-3">Computer</td>
-                                    <td class="border border-slate-300 text-center py-3">10</td>
+                                <tr v-for="(signleProduct, i) in allProductTypes" :key="signleProduct.i">
+                                    <td class="border border-slate-300 text-center py-3">{{ signleProduct.type }}</td>
+                                    <td class="border border-slate-300 text-center py-3">{{ signleProduct.quantity }}</td>
+                                    <td class="border border-slate-300 text-center py-3">{{ calculation() }}</td>
                                     <td class="border border-slate-300 text-center py-3">01</td>
-                                </tr>
-                                <tr>
-                                    <td class="border border-slate-300 text-center py-3">Headphone</td>
-                                    <td class="border border-slate-300 text-center py-3">02</td>
-                                    <td class="border border-slate-300 text-center py-3">10</td>
                                 </tr>
                             </tbody>
                     </table>
@@ -65,10 +62,41 @@
 </template>
 
 <script>
-import {employeeData} from '../Store/store.js'
+import Unittypes from '../components/unittypes.vue'
+import Persons from '../components/Employee.vue'
 export default {
+    components: {
+        Unittypes, Persons
+    },
+    data() {
+        return {
+            // key: value
+            allProductTypes: []
+        }
+    },
     mounted () {
-        // console.log(employeeData.get());
+            let arr = localStorage.getItem('allProductDetails')
+            this.allProductTypes = JSON.parse(arr) ? JSON.parse(arr) : [];
+            this.productNameAmount = JSON.parse(localStorage.getItem('personInfos'))
+            // this.allProductTypes = JSON.parse(allProductTypes) ? JSON.parse(allProductTypes) : [];
+            // console.log(productNameAmount[index].device)
+            // for (let i in this.productNameAmount) {
+            //     const element = this.productNameAmount[i];
+            //     console.log(element) 
+            // }
+            
+
+        },
+    methods: {
+        calculation() {
+            // console.log(this.productNameAmount)
+            for (let i = 0; i < this.productNameAmount.length; i++) {
+                const element = this.productNameAmount[i].device;
+                // console.log(Object.values(element))
+                console.log(element)
+                
+            }
+        }
     },
 }
 </script>
