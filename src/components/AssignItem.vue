@@ -18,7 +18,7 @@
         },
         mounted () {
             this.products = JSON.parse(localStorage.getItem('allProductDetails'))
-            console.log(this.products)
+            console.log("XXXXX: ", this.products)
         },
         methods: {
             assignItem(type) {

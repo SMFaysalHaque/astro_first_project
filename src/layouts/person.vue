@@ -37,10 +37,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(item, i) in personInfos.device" :key="item.i">
+                    <tr v-for="(value, key) in personInfo.device" :key="value">
                         <!-- {{ personInfo.device }} -->
-                        <td class="border border-slate-300 text-center py-3"></td>
-                        <td class="border border-slate-300 text-center py-3"></td>
+                        <td class="border border-slate-300 text-center py-3">{{ key }}</td>
+                        <td class="border border-slate-300 text-center py-3">{{ value }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -48,7 +48,7 @@
         <div class="flex flex-col items-center justify-center col-span-3 mx-5 my-5">
             <button class="border rounded-lg contrast-more:border-slate-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 hover:bg-sky-600 hover:text-white px-10 py-3 me-2 ease-in duration-300" @click="isShowed(i)">Assign Units</button>
             <div v-if="personInfo.show">
-                <AssignItem @assignProduct="assignProduct()" @close="isClosed(i)"/>
+                <AssignItem @assignProduct="assignProduct($event, i)" @close="isClosed(i)"/>
             </div>
         </div>
     </div>
@@ -92,6 +92,7 @@ import AssignItem from '../components/AssignItem.vue'
             isShowed(index){
                 // this.selectedIndex = index
                 // console.log(this.personInfos[index])
+                console.log("halum", this.personInfos[index]);
                 this.personInfos[index].show = true
             },
             isClosed(index){
@@ -100,15 +101,49 @@ import AssignItem from '../components/AssignItem.vue'
                 // this.selectedIndex = index
             },
             assignProduct(type, index){
-                // console.log("typpe", type , "index", index);
-                // const currentPerson = this.personInfos[index]
-                // console.log(currentPerson.type)
-                // if(!currentPerson[type]){
-                //     currentPerson[type] = 1;
-                // }
+                console.log("typpe", type , "index", index);
+                const currentPerson = this.personInfos[index]
+                console.log("Current Person", currentPerson)
+                if(!currentPerson.device[type]){
+                    currentPerson.device[type] = 1;
+                }
                 // console.log("currentPerson", currentPerson);
                 localStorage.setItem('allEmployee', JSON.stringify(this.personInfos))
-                localStorage.setItem('personInfos', JSON.stringify(this.personInfos))
+                // localStorage.setItem('personInfos', JSON.stringify(this.personInfos))
+
+
+                // console.log("typpe", type , "index", index);
+                // //get type quantity                                                 
+                // const allProducts = localStorage.getItem('allProductDetails')
+                // let typeQuantity = 0
+                // for (let index = 0; index < allProducts.length; index++) {
+                //     const product = allProducts[index];
+                //     if (product.type === type) {
+                //         typeQuantity = product.quantity
+                //     }
+                // }
+                // // count number of taken units
+                // let takenUnits = 0
+                // for (let index = 0; index < this.personInfos.length; index++) {
+                //     const person = this.personInfos[index];
+                //     takenUnits = takenUnits + person.device[type]
+                // }
+                // // if product available assign it to person else give alert
+                // if (takenUnits <= typeQuantity){
+                
+                //     const currentPerson = this.personInfos[index]
+                //     if(!currentPerson.device[type]){
+                //         currentPerson.device[type] = 1;
+                //     }
+                //     else{
+                //         currentPerson.device[type] = currentPerson.device[type] + 1
+                //     }
+                //     console.log("currentPerson", currentPerson);
+                //     localStorage.setItem('allEmployee', JSON.stringify(this.personInfos))
+                // }
+                // else{
+                //     alert(`${type} is not available`)
+                // }
             }
         }
     }
